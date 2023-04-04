@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: aliyun-tbjx
+  labels:
+    app: aliyun
+spec:
+  containers:
+  - name: offends-aliyunv1
+    image: registry.cn-hangzhou.aliyuncs.com/offends/vpn:v1.0
+    volumeMounts:
+    - mountPath: /usr/local/aliyun
+      name: aliyun-volume
+  volumes:
+  - name: aliyun-volume
+    hostPath:
+      path: #本地持久化路径
+      type: DirectoryOrCreate
+  restartPolicy: Always
+  hostNetwork: true
+  dnsPolicy: ClusterFirstWithHostNet
