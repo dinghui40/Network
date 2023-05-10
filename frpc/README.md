@@ -68,3 +68,21 @@ docker run --name frpc --restart=always \
 -v ${pwd}/frpc.ini:/frp/frpc.ini \
 -d registry.cn-hangzhou.aliyuncs.com/offends/vpn:frpc
 ```
+k8s启动
+
+```
+kubectl create ns frp
+kubectl create configmap frpc-conf --from-file=frpc.ini -n frp
+kubectl apply -f frpc.yaml
+```
+更新configmap
+
+```
+kubectl create configmap frpc-conf --from-file=frpc.ini \
+--dry-run=client -o yaml | kubectl apply -f -
+```
+或直接替换
+```
+kubectl create configmap frpc-conf --from-file=./frpc.ini \
+--dry-run=client -o yaml | kubectl replace -f -
+```
