@@ -47,14 +47,14 @@ remote_port = 3389
 构建镜像
 
 ```
-docker build -t registry.cn-hangzhou.aliyuncs.com/offends/vpn:frpc .
+docker build -t registry.cn-hangzhou.aliyuncs.com/offends/frp:frpc .
 ```
 
 Copy配置文件
 
 ```
 docker run --name frp_slave \
--d registry.cn-hangzhou.aliyuncs.com/offends/vpn:frpc
+-d registry.cn-hangzhou.aliyuncs.com/offends/frp:frpc
 
 docker cp frp_slave:/frp/frpc.ini .
 
@@ -66,7 +66,7 @@ docker rm -f frp_slave
 docker run --name frpc --restart=always \
 --net=host \
 -v ${pwd}/frpc.ini:/frp/frpc.ini \
--d registry.cn-hangzhou.aliyuncs.com/offends/vpn:frpc
+-d registry.cn-hangzhou.aliyuncs.com/offends/frp:frpc
 ```
 k8s启动
 

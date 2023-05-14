@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: frpc
-        image: registry.cn-hangzhou.aliyuncs.com/offends/vpn:frpc
+        image: registry.cn-hangzhou.aliyuncs.com/offends/frp:frpc
         volumeMounts:
           - name: frpc-config
             mountPath: /frp

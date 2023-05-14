@@ -7,7 +7,7 @@
 构建镜像
 
 ```
-docker build -t registry.cn-hangzhou.aliyuncs.com/offends/vpn:frps .
+docker build -t registry.cn-hangzhou.aliyuncs.com/offends/frp:frps .
 ```
 
 启动容器
@@ -16,6 +16,6 @@ docker build -t registry.cn-hangzhou.aliyuncs.com/offends/vpn:frps .
 docker run --name frps --restart=always \
 --net=host \
 -v ${pwd}/frps.ini:/frp/frps.ini \
--d registry.cn-hangzhou.aliyuncs.com/offends/vpn:frps
+-d registry.cn-hangzhou.aliyuncs.com/offends/frp:frps
 ```
 
